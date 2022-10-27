@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('year'); //Ano publicação
             $table->string('image');
             $table->string('classification'); //genero do filme/série
-            $table->string('recommendation'); //recomendado sim ou não
+            $table->integer('recommendations'); //recomendado sim ou não
             $table->timestamps();
 
             $table->foreign('user_id')
