@@ -1,0 +1,21 @@
+.card.mb-3{
+    margin-top: 30px;
+    max-width: 800px;
+}
+
+.img-fluid{
+    height: 180px; 
+    max-width: 210px;
+}
+
+.container-sm{
+    margin-top: 30px;
+}
+
+.container-sm .form-group{
+    margin: 8px;
+}
+
+.button{
+    margin: 8px;
+}

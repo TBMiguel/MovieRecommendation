@@ -22,7 +22,8 @@ return new class extends Migration
             $table->integer('year'); //Ano publicação
             $table->string('image');
             $table->string('classification'); //genero do filme/série
-            $table->integer('recommendations'); //recomendado sim ou não
+            $table->integer('recommendations')->nullable(); //recomendado sim ou não
+            $table->softDeletesTz($column = 'deleted_at', $precision = 0);
             $table->timestamps();
 
             $table->foreign('user_id')
