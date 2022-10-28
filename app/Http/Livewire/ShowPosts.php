@@ -9,10 +9,7 @@ use Livewire\Component;
 class ShowPosts extends Component
 { 
 
-    public $name = '';
-    public $year = null;
-    public $classification = '';
-    public $image = null;
+    public $name, $year, $classification, $image;
 
     public function render()
     {
@@ -23,7 +20,8 @@ class ShowPosts extends Component
         ]);
     }
 
-    public function criar(){
+    public function criar()
+    {
 
         auth()->user()->posts()->create([
             'name' => $this->name,
@@ -33,7 +31,8 @@ class ShowPosts extends Component
         ]);
     }
 
-    public function recomendar($postId){
+    public function recomendar($postId)
+    {
         $post = Post::find($postId);
 
         $post->recommendations()->create([
@@ -41,7 +40,8 @@ class ShowPosts extends Component
         ]);
     }
 
-    public function desrecomendar(Post $post){
+    public function desrecomendar(Post $post)
+    {
         $post->recommendations()->delete([
             'user_id' => auth()->user()->id
         ]);

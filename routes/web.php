@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{
     ShowPosts,
-    ShowUserPosts
+    ShowUserPosts,
+    EditUserPosts
 };
 
 /*
@@ -21,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('posts', ShowPosts::class)->middleware('auth')->name('posts'); //já aponta para a render
+Route::get('posts', ShowPosts::class)->middleware('auth')->name('posts');
 Route::get('user/posts', ShowUserPosts::class)->middleware('auth')->name('userposts');
 
 Route::middleware([

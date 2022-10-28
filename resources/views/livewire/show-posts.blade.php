@@ -1,3 +1,4 @@
+@if($posts->count() > 0)
 <div>
 
     <form method="POST" enctype="multipart/form-data" wire:submit.prevent="criar">
@@ -47,3 +48,28 @@
     </div>
     @endforeach
 </div>
+@else
+    <div>
+        <form method="POST" enctype="multipart/form-data" wire:submit.prevent="criar">
+            <div class="container-sm card" id="formcreate">
+                <div class="form-group">
+                    <label for="name">Titulo do Livro</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Harry Potter" wire:model="name" required> 
+                    <label for="year">Ano</label>
+                    <input type="number" class="form-control" id="year" name="year" placeholder="2000" wire:model="year" required> 
+                    <label for="classification">Gênero</label>
+                    <input type="text" class="form-control" id="classification" name="classification" placeholder="Aventura" wire:model="classification" required>
+                    <label for="image" class="form-label">Insira uma url da imagem do filme/livro</label>
+                    <input class="form-control" type="text" id="image" name="image" wire:model="image" required> 
+                </div>
+                <div class="button">
+                    <input type="submit" class="btn btn-success" value="Cadastrar"> 
+                </div>
+            </div>
+        </form>
+
+        <div class="container-sm card mb-4" style="padding: 10px; text-align: center;">
+            <p>Nenhum post encontrado</p>
+        </div>
+    </div>
+@endif
