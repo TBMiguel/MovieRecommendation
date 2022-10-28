@@ -1,11 +1,11 @@
 .card.mb-3{
     margin-top: 30px;
-    max-width: 800px;
+    max-width: 700px;
 }
 
 .img-fluid{
-    height: 180px; 
-    max-width: 210px;
+    max-height: 300px; 
+    max-width: 300px;
 }
 
 .container-sm{
@@ -13,9 +13,9 @@
 }
 
 .container-sm .form-group{
-    margin: 8px;
+    margin: 18px;
 }
 
 .button{
-    margin: 8px;
+    margin: 18px;
 }

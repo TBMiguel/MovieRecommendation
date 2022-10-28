@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
@@ -20,10 +15,9 @@ return new class extends Migration
 
             $table->string('name'); //nome do filme
             $table->integer('year'); //Ano publicação
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('classification'); //genero do filme/série
-            $table->integer('recommendations')->nullable(); //recomendado sim ou não
-            $table->softDeletesTz($column = 'deleted_at', $precision = 0);
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')
