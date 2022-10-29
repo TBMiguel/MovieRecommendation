@@ -21,6 +21,5 @@ Ao seguir, automaticamente acompanha.
  - Rodar o npm run dev
  - De o composer update
  - Rode um npm install
- - Rode a migration
  - Configure variaveis do banco de dados copiando o .env.example e renomeie para .env - No caso utilizado Docker
  - Rode as migrations
