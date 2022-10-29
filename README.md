@@ -16,7 +16,7 @@ Ao seguir, automaticamente acompanha.
     3.4 - Acessar a página de feed central, esta página lista todos os posts dos outros usuários.
     3.5 - Acessar a página de feed que ele segue, aparece posts que ele votou recomendando ou não, ou então só marcou pra seguir
 
-##Para testar esse projeto clone esse repositório com o git clone (url - link ssh) ou baixe o .zip clicando em code.
+## Para testar esse projeto clone esse repositório com o git clone (url - link ssh) ou baixe o .zip clicando em code.
 
  - Rodar o npm run dev
  - De o composer update
