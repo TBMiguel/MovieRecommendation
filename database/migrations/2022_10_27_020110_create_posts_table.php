@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('year'); //Ano publicação
             $table->string('image')->nullable();
             $table->string('classification'); //genero do filme/série
+            $table->string('status');
             $table->softDeletes();
             $table->timestamps();
 

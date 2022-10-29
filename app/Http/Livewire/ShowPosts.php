@@ -10,6 +10,7 @@ class ShowPosts extends Component
 { 
 
     public $name, $year, $classification, $image;
+    public $status = "Aberto";
 
     public function render()
     {
@@ -28,7 +29,10 @@ class ShowPosts extends Component
             'year' => $this->year,
             'classification' => $this->classification,
             'image' => $this->image,
+            'status' => $this->status,
         ]);
+
+        return redirect()->route('posts')->with('msg', 'Post criado com sucesso!');
     }
 
     public function recomendar($postId)

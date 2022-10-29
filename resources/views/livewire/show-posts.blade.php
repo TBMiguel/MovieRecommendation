@@ -32,12 +32,21 @@
                     <p class="card-text">Gênero: {{ $post->classification }}</p>
                     <p class="card-text">Ano do filme/série: {{ $post->year }}</small></p>
                     <p class="card-text">Recomendações {{ $post->allrecommendations()->count() }}</small></p>
+                    @if($post->status == "Aberto")
+                        <button class="btn btn-warning">
+                            <p class="card-text">{{ $post->status }}</small></p>
+                        </button>
+                    @else
+                        <button class="btn btn-success">
+                            <p class="card-text">{{ $post->status }}</small></p>
+                        </button>
+                    @endif
                    
-                    @if($post->recommendations->count())
+                    @if($post->recommendations->count() && $post->status == "Aberto")
                         <div class="button">
                             <input class="btn btn-danger" wire:click.prevent="desrecomendar({{ $post->id }})" value="Retirar recomendação"> 
                         </div>
-                    @else
+                    @elseif($post->status == "Aberto")
                         <div class="button">
                             <input class="btn btn-primary" wire:click.prevent="recomendar({{ $post->id }})" value="Recomendar"> 
                         </div>
