@@ -1,6 +1,6 @@
 # Teste Pratico via humana
 
-## Teste prático de CRUD de recomendações de filmes/séries
+## Teste prático de CRUD de recomendações de filmes/séries com Laravel & Livewire
 
 Para o teste técnico foi solicitada a seguinte tarefa:
 
