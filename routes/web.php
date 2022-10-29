@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{
     ShowPosts,
     ShowUserPosts,
-    EditUserPosts
+    EditUserPosts,
 };
 
 /*
@@ -36,5 +36,5 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    
+
 });
