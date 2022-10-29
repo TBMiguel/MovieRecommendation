@@ -25,6 +25,9 @@ Route::get('/', function () {
 Route::get('posts', ShowPosts::class)->middleware('auth')->name('posts');
 Route::get('user/posts', ShowUserPosts::class)->middleware('auth')->name('userposts');
 
+Route::get('posts/edit/{id}', [EditUserPosts::class, 'render'])->middleware('auth')->name('edit');
+Route::put('posts/update/{id}', [EditUserPosts::class, 'update'])->middleware('auth');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

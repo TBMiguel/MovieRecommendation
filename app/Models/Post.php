@@ -17,6 +17,7 @@ class Post extends Model
         'year', 
         'image', 
         'classification', 
+        'status'
     ];
 
     public function user(){

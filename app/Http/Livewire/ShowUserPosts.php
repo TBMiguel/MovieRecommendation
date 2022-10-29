@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ShowUserPosts extends Component
 {
-    public $post_id, $name, $year, $classification, $image;
+    public $name, $year, $classification, $image;
 
     public function render()
     {
@@ -19,25 +19,23 @@ class ShowUserPosts extends Component
 
     public function deletar($postId)
     {
-
-        $post = Post::find($postId);
-        $post->delete();
-
-        return redirect()->route('posts');
-    }
-
-    public function editar($postId){
         $post = Post::find($postId);
 
-        $this->dispatchBrowserEvent('show-form');
+        if($post->allrecommendations()->count() == 0){
+
+            $post = Post::find($postId);
+            $post->delete();
+
+            return redirect()->route('posts')->with('msg', 'Post apagado com sucesso!');
+        } else if(!$post->allrecommendations()->count() == 0) {
+            return redirect()->route('userposts')->with('msg', 'Não é possivel deletar pois esse post tem interações!');
+        }
     }
 
-    public function save(){
-        auth()->user()->posts()->merge([
-            'name' => $this->name,
-            'year' => $this->year,
-            'classification' => $this->classification,
-            'image' => $this->image,
-        ]);
+    public function editar($id){
+
+        $post = Post::findOrFail($id);
+
+        return redirect()->route('edit', ['id' => $post]);
     }
 }
