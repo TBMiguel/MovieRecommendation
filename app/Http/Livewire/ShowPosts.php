@@ -50,4 +50,36 @@ class ShowPosts extends Component
             'user_id' => auth()->user()->id
         ]);
     }
+
+    public function naorecomendar($postId)
+    {
+        $post = Post::find($postId);
+
+        $post->norecommendations()->create([
+            'user_id' => auth()->user()->id
+        ]);
+    }
+
+    public function retirarnaorecomendacao(Post $post)
+    {
+        $post->norecommendations()->delete([
+            'user_id' => auth()->user()->id
+        ]);
+    }
+
+    public function follow($postId)
+    {
+        $post = Post::find($postId);
+
+        $post->follow()->create([
+            'user_id' => auth()->user()->id
+        ]);
+    }
+
+    public function unfollow(Post $post)
+    {
+        $post->unfollow()->delete([
+            'user_id' => auth()->user()->id
+        ]);
+    }
 }

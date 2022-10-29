@@ -32,6 +32,7 @@
                     <p class="card-text">Gênero: {{ $post->classification }}</p>
                     <p class="card-text">Ano do filme/série: {{ $post->year }}</small></p>
                     <p class="card-text">Recomendações {{ $post->allrecommendations()->count() }}</small></p>
+                    <p class="card-text">Não Recomendações {{ $post->allnorecommendations()->count() }}</small></p>
                     @if($post->status == "Aberto")
                         <button class="btn btn-warning">
                             <p class="card-text">{{ $post->status }}</small></p>
@@ -49,6 +50,26 @@
                     @elseif($post->status == "Aberto")
                         <div class="button">
                             <input class="btn btn-primary" wire:click.prevent="recomendar({{ $post->id }})" value="Recomendar"> 
+                        </div>
+                    @endif
+
+                    @if($post->norecommendations->count() && $post->status == "Aberto")
+                        <div class="button">
+                            <input class="btn btn-danger" wire:click.prevent="retirarnaorecomendacao({{ $post->id }})" value="Retirar não recomendação"> 
+                        </div>
+                    @elseif($post->status == "Aberto")
+                        <div class="button">
+                            <input class="btn btn-dark" wire:click.prevent="naorecomendar({{ $post->id }})" value="Não recomendar"> 
+                        </div>
+                    @endif
+
+                    @if($post->follow->count() && $post->status == "Aberto")
+                        <div class="button">
+                            <input class="btn btn-danger" wire:click.prevent="unfollow({{ $post->id }})" value="Deixar de seguir"> 
+                        </div>
+                    @elseif($post->status == "Aberto")
+                        <div class="button">
+                            <input class="btn btn-success" wire:click.prevent="follow({{ $post->id }})" value="Seguir"> 
                         </div>
                     @endif
                 </div>
